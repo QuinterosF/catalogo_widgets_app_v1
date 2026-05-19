@@ -1,3 +1,4 @@
+import 'package:catalogo_widgets_app/screens/container_screen.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -26,18 +27,47 @@ class MenuPrincipalScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // Scaffold provee la estructura visual básica (AppBar, Body, FAB, etc.)
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Inicio - Catálogo de Widgets'),
+        title: const Text('Catálogo de Widgets'),
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
       ),
-      // Center se encarga de posicionar a su hijo exactamente en el medio
-      body: const Center(
-        child: Text(
-          'Bienvenido al Explorador de Widgets',
-          style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-        ),
+      // Reemplazamos Center por ListView
+      body: ListView(
+        children: [
+          ListTile(
+            leading: const Icon(
+              Icons.check_box_outline_blank,
+              color: Colors.teal,
+            ),
+            title: const Text('1. Container, Padding y SizedBox'),
+            subtitle: const Text('Cajas, márgenes y espacios'),
+            trailing: const Icon(Icons.arrow_forward_ios, size: 16),
+            onTap: () {
+              // Usamos Navigator para ir a la nueva pantalla
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => const ContainerScreen(),
+                ),
+              );
+            },
+          ),
+          const Divider(), // Agrega una línea separadora
+
+          ListTile(
+            leading: const Icon(Icons.view_column, color: Colors.blue),
+            title: const Text('2. Column y Row'),
+            subtitle: const Text('Alineación vertical y horizontal'),
+            trailing: const Icon(Icons.arrow_forward_ios, size: 16),
+            onTap: () {
+              // Futura navegación
+            },
+          ),
+          const Divider(),
+
+          // Iremos agregando más ListTiles a medida que avancemos...
+        ],
       ),
     );
   }
