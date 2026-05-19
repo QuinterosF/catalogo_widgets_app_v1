@@ -1,4 +1,9 @@
 import 'package:catalogo_widgets_app/screens/container_screen.dart';
+import 'package:catalogo_widgets_app/screens/column_row_screen.dart';
+import 'package:catalogo_widgets_app/screens/ui_elements_screen.dart';
+import 'package:catalogo_widgets_app/screens/inputs_screen.dart';
+import 'package:catalogo_widgets_app/screens/layers_scroll_screen.dart';
+
 import 'package:flutter/material.dart';
 
 void main() {
@@ -61,12 +66,60 @@ class MenuPrincipalScreen extends StatelessWidget {
             subtitle: const Text('Alineación vertical y horizontal'),
             trailing: const Icon(Icons.arrow_forward_ios, size: 16),
             onTap: () {
-              // Futura navegación
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => const ColumnRowScreen(),
+                ),
+              );
             },
           ),
           const Divider(),
 
-          // Iremos agregando más ListTiles a medida que avancemos...
+          ListTile(
+            leading: const Icon(Icons.smart_button, color: Colors.deepPurple),
+            title: const Text('3. Elementos UI'),
+            subtitle: const Text('Text, Image, Icon y Botones'),
+            trailing: const Icon(Icons.arrow_forward_ios, size: 16),
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => const UIElementsScreen(),
+                ),
+              );
+            },
+          ),
+          const Divider(),
+
+          ListTile(
+            leading: const Icon(Icons.keyboard, color: Colors.orange),
+            title: const Text('4. Formularios y Entradas'),
+            subtitle: const Text('TextField y TextFormField'),
+            trailing: const Icon(Icons.arrow_forward_ios, size: 16),
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const InputsScreen()),
+              );
+            },
+          ),
+          const Divider(),
+
+          ListTile(
+            leading: const Icon(Icons.layers, color: Colors.amber),
+            title: const Text('5. Capas y Cuadrículas'),
+            subtitle: const Text('Stack, Positioned y GridView'),
+            trailing: const Icon(Icons.arrow_forward_ios, size: 16),
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => const LayersScrollScreen(),
+                ),
+              );
+            },
+          ),
         ],
       ),
     );
